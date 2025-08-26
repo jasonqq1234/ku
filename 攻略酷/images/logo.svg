@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="200" height="50" viewBox="0 0 200 50">
-  <style>
-    .logo-text { font-family: Arial, sans-serif; font-weight: bold; font-size: 24px; fill: #ffffff; }
-    .icon { fill: #ffc107; }
-  </style>
-  <rect x="10" y="10" width="30" height="30" rx="5" class="icon" />
-  <text x="50" y="32" class="logo-text">GuideTrade</text>
-  <path d="M15 25 L20 20 L25 25 L30 20 L35 25" stroke="#ffffff" stroke-width="2" fill="none" />
-</svg>
