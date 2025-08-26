@@ -1,0 +1,562 @@
+/* 發表攻略頁面樣式 */
+
+/* 確保內容不被導航欄遮擋 */
+body {
+    padding-top: 80px;
+}
+
+/* 頁面標題 */
+.page-header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--white);
+    padding: 120px 0 60px;
+    text-align: center;
+}
+
+.page-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    animation: fadeInDown 0.6s ease-out;
+}
+
+.page-header p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* 發表攻略表單區域 */
+.publish-form-section {
+    padding: 60px 0;
+    background-color: var(--light-bg);
+}
+
+.form-container {
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    padding: 40px;
+    margin-bottom: 40px;
+    animation: fadeIn 0.8s ease-out;
+}
+
+/* 進度條樣式 */
+.form-progress {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.progress-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.step-number {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--light-bg);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+}
+
+.step-text {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.progress-step.active .step-number {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.progress-step.active .step-text {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.progress-step.completed .step-number {
+    background-color: var(--success-color);
+    color: var(--white);
+}
+
+.progress-line {
+    flex: 1;
+    height: 3px;
+    background-color: var(--light-bg);
+    position: relative;
+    z-index: 1;
+}
+
+.progress-line.active {
+    background-color: var(--primary-color);
+}
+
+/* 表單步驟樣式 */
+.form-step {
+    animation: fadeIn 0.5s ease-out;
+}
+
+.form-step h2 {
+    color: var(--primary-color);
+    margin-bottom: 30px;
+    font-size: 1.8rem;
+}
+
+/* 表單元素樣式 */
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group input[type="datetime-local"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+    outline: none;
+}
+
+.form-hint {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin-top: 5px;
+}
+
+/* 標籤預覽區域 */
+.tags-preview {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.tag-item {
+    background-color: var(--light-bg);
+    color: var(--primary-color);
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+}
+
+.tag-item .remove-tag {
+    margin-left: 5px;
+    cursor: pointer;
+    color: var(--text-light);
+}
+
+.tag-item .remove-tag:hover {
+    color: var(--danger-color);
+}
+
+/* 圖片上傳區域 */
+.image-upload-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.image-preview {
+    width: 150px;
+    height: 100px;
+    border: 2px dashed var(--border-color);
+    border-radius: var(--border-radius);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-light);
+    overflow: hidden;
+    position: relative;
+}
+
+.image-preview i {
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+
+.image-preview img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+/* 字數計數器 */
+.char-counter {
+    text-align: right;
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin-top: 5px;
+}
+
+/* 編輯器工具欄 */
+.editor-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    padding: 10px;
+    background-color: var(--light-bg);
+    border: 1px solid var(--border-color);
+    border-bottom: none;
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+.toolbar-btn {
+    background: none;
+    border: none;
+    width: 35px;
+    height: 35px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.toolbar-btn:hover {
+    background-color: var(--border-color);
+}
+
+.toolbar-btn.active {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+/* 內容編輯器 */
+.content-editor {
+    min-height: 300px;
+    padding: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+    outline: none;
+    overflow-y: auto;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.content-editor:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+/* 章節管理 */
+.chapters-container {
+    margin-bottom: 15px;
+}
+
+.chapter-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.chapter-title {
+    flex: 1;
+}
+
+.chapter-actions {
+    display: flex;
+    gap: 5px;
+    margin-left: 10px;
+}
+
+.btn-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+    background: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-icon:hover {
+    background-color: var(--light-bg);
+}
+
+.delete-chapter:hover {
+    color: var(--danger-color);
+    border-color: var(--danger-color);
+}
+
+/* 價格輸入 */
+.price-input {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 200px;
+}
+
+.currency {
+    padding: 12px 15px;
+    background-color: var(--light-bg);
+    border: 1px solid var(--border-color);
+    border-right: none;
+    border-radius: var(--border-radius) 0 0 var(--border-radius);
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+.price-input input {
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+}
+
+/* 複選框和單選按鈕樣式 */
+.checkbox-group, .radio-group {
+    margin-top: 10px;
+}
+
+.checkbox-label, .radio-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.checkbox-label input, .radio-label input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.checkbox-custom, .radio-custom {
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    border: 2px solid var(--border-color);
+    border-radius: 3px;
+    transition: all 0.2s ease;
+}
+
+.radio-custom {
+    border-radius: 50%;
+}
+
+.checkbox-label input:checked ~ .checkbox-custom,
+.radio-label input:checked ~ .radio-custom {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.checkbox-custom:after,
+.radio-custom:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.checkbox-label input:checked ~ .checkbox-custom:after,
+.radio-label input:checked ~ .radio-custom:after {
+    display: block;
+}
+
+.checkbox-label .checkbox-custom:after {
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.radio-label .radio-custom:after {
+    top: 5px;
+    left: 5px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: white;
+}
+
+/* 範圍滑塊 */
+.range-slider {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.range-slider input {
+    flex: 1;
+}
+
+.range-value {
+    font-weight: 600;
+    color: var(--primary-color);
+    min-width: 40px;
+    text-align: center;
+}
+
+/* 表單按鈕區域 */
+.form-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    gap: 15px;
+}
+
+.form-buttons button {
+    min-width: 120px;
+}
+
+/* 發布小技巧區域 */
+.publish-tips {
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    padding: 30px;
+    animation: fadeIn 0.8s ease-out;
+}
+
+.publish-tips h3 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.publish-tips ul {
+    list-style: none;
+    padding: 0;
+}
+
+.publish-tips li {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.publish-tips li i {
+    color: var(--success-color);
+    margin-right: 10px;
+    margin-top: 3px;
+}
+
+.text-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.text-link:hover {
+    text-decoration: underline;
+}
+
+/* 響應式設計 */
+@media (max-width: 992px) {
+    .form-container {
+        padding: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .form-progress {
+        flex-direction: column;
+        gap: 20px;
+        align-items: flex-start;
+    }
+    
+    .progress-line {
+        display: none;
+    }
+    
+    .progress-step {
+        flex-direction: row;
+        width: 100%;
+        gap: 15px;
+    }
+    
+    .form-buttons {
+        flex-direction: column;
+    }
+    
+    .form-buttons button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .form-container {
+        padding: 20px;
+    }
+    
+    .image-upload-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .image-preview {
+        width: 100%;
+    }
+}
+
+/* 動畫效果 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}

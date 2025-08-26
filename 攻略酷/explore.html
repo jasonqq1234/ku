@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>探索攻略 - GuideTrade</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/explore.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="js/auth.js"></script>
+</head>
+<body>
+    <!-- 導航欄 -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/logo.svg" alt="GuideTrade Logo">
+                    <span>GuideTrade</span>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">首頁</a>
+                <a href="explore.html" class="active">探索攻略</a>
+                <a href="publish.html">發表攻略</a>
+                <a href="leaderboard.html">排行榜</a>
+                <a href="about.html">關於我們</a>
+            </div>
+            <div class="nav-buttons">
+                <a href="login.html" class="btn btn-outline">登入</a>
+                <a href="register.html" class="btn btn-primary">註冊</a>
+            </div>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 頁面標題 -->
+    <section class="page-header">
+        <div class="container">
+            <h1>探索攻略</h1>
+            <p>尋找適合您的專業知識和指南</p>
+        </div>
+    </section>
+
+    <!-- 搜尋與篩選區 -->
+    <section class="search-filter">
+        <div class="container">
+            <div class="search-box">
+                <input type="text" placeholder="搜尋攻略...">
+                <button class="search-btn"><i class="fas fa-search"></i></button>
+            </div>
+            
+            <div class="filters">
+                <div class="filter-group">
+                    <label>類別</label>
+                    <div class="filter-options">
+                        <button class="filter-btn active">全部</button>
+                        <button class="filter-btn">遊戲</button>
+                        <button class="filter-btn">理財</button>
+                        <button class="filter-btn">學習</button>
+                    </div>
+                </div>
+                
+                <div class="filter-group">
+                    <label>價格區間</label>
+                    <div class="price-range">
+                        <input type="range" min="0" max="1000" value="500" class="price-slider">
+                        <div class="price-values">
+                            <span>NT$0</span>
+                            <span class="price-current">NT$500</span>
+                            <span>NT$1000+</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="filter-group">
+                    <label>排序方式</label>
+                    <select class="sort-select">
+                        <option value="popular">熱門優先</option>
+                        <option value="newest">最新優先</option>
+                        <option value="oldest">最舊優先</option>
+                        <option value="rating-high">評分由高到低</option>
+                        <option value="rating-low">評分由低到高</option>
+                        <option value="price-low">價格由低到高</option>
+                        <option value="price-high">價格由高到低</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 攻略列表區 -->
+    <section class="guides-list">
+        <div class="container">
+            <div class="guides-grid">
+                <!-- 攻略卡片 1 -->
+                <div class="guide-card">
+                    <div class="guide-image">
+                        <img src="images/guide-1.jpg" alt="攻略縮圖">
+                        <div class="guide-category game">遊戲</div>
+                    </div>
+                    <div class="guide-info">
+                        <h3>最新遊戲通關秘技</h3>
+                        <div class="guide-meta">
+                            <div class="author">
+                                <img src="images/avatar-1.jpg" alt="作者頭像">
+                                <span>遊戲達人</span>
+                            </div>
+                            <div class="price">NT$299</div>
+                        </div>
+                        <div class="guide-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span>(4.5)</span>
+                        </div>
+                        <a href="guide-detail.html" class="btn btn-primary btn-sm">購買</a>
+                    </div>
+                </div>
+                
+                <!-- 攻略卡片 2 -->
+                <div class="guide-card">
+                    <div class="guide-image">
+                        <img src="images/guide-2.jpg" alt="攻略縮圖">
+                        <div class="guide-category finance">理財</div>
+                    </div>
+                    <div class="guide-info">
+                        <h3>股市投資入門指南</h3>
+                        <div class="guide-meta">
+                            <div class="author">
+                                <img src="images/avatar-2.jpg" alt="作者頭像">
+                                <span>投資專家</span>
+                            </div>
+                            <div class="price">NT$499</div>
+                        </div>
+                        <div class="guide-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span>(5.0)</span>
+                        </div>
+                        <a href="guide-detail.html" class="btn btn-primary btn-sm">購買</a>
+                    </div>
+                </div>
+                
+                <!-- 攻略卡片 3 -->
+                <div class="guide-card">
+                    <div class="guide-image">
+                        <img src="images/guide-3.jpg" alt="攻略縮圖">
+                        <div class="guide-category learning">學習</div>
+                    </div>
+                    <div class="guide-info">
+                        <h3>程式設計面試技巧</h3>
+                        <div class="guide-meta">
+                            <div class="author">
+                                <img src="images/avatar-3.jpg" alt="作者頭像">
+                                <span>科技導師</span>
+                            </div>
+                            <div class="price">NT$399</div>
+                        </div>
+                        <div class="guide-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <span>(4.0)</span>
+                        </div>
+                        <a href="guide-detail.html" class="btn btn-primary btn-sm">購買</a>
+                    </div>
+                </div>
+                
+                <!-- 攻略卡片 4 -->
+                <div class="guide-card">
+                    <div class="guide-image">
+                        <img src="images/guide-4.jpg" alt="攻略縮圖">
+                        <div class="guide-category game">遊戲</div>
+                    </div>
+                    <div class="guide-info">
+                        <h3>電競選手訓練方法</h3>
+                        <div class="guide-meta">
+                            <div class="author">
+                                <img src="images/avatar-4.jpg" alt="作者頭像">
+                                <span>電競教練</span>
+                            </div>
+                            <div class="price">NT$599</div>
+                        </div>
+                        <div class="guide-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span>(4.7)</span>
+                        </div>
+                        <a href="guide-detail.html" class="btn btn-primary btn-sm">購買</a>
+                    </div>
+                </div>
+                
+                <!-- 攻略卡片 5 -->
+                <div class="guide-card">
+                    <div class="guide-image">
+                        <img src="images/guide-5.jpg" alt="攻略縮圖">
+                        <div class="guide-category finance">理財</div>
+                    </div>
+                    <div class="guide-info">
+                        <h3>加密貨幣投資策略</h3>
+                        <div class="guide-meta">
+                            <div class="author">
+                                <img src="images/avatar-5.jpg" alt="作者頭像">
+                                <span>區塊鏈專家</span>
+                            </div>
+                            <div class="price">NT$799</div>
+                        </div>
+                        <div class="guide-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <span>(4.2)</span>
+                        </div>
+                        <a href="guide-detail.html" class="btn btn-primary btn-sm">購買</a>
+                    </div>
+                </div>
+                
+                <!-- 攻略卡片 6 -->
+                <div class="guide-card">
+                    <div class="guide-image">
+                        <img src="images/guide-6.jpg" alt="攻略縮圖">
+                        <div class="guide-category learning">學習</div>
+                    </div>
+                    <div class="guide-info">
+                        <h3>高效學習方法論</h3>
+                        <div class="guide-meta">
+                            <div class="author">
+                                <img src="images/avatar-6.jpg" alt="作者頭像">
+                                <span>學習專家</span>
+                            </div>
+                            <div class="price">NT$349</div>
+                        </div>
+                        <div class="guide-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span>(4.9)</span>
+                        </div>
+                        <a href="guide-detail.html" class="btn btn-primary btn-sm">購買</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 分頁 -->
+            <div class="pagination">
+                <a href="#" class="active">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">4</a>
+                <a href="#">5</a>
+                <a href="#" class="next"><i class="fas fa-chevron-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 底部資訊 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="images/logo-white.svg" alt="GuideTrade Logo">
+                    <span>GuideTrade</span>
+                </div>
+                <div class="footer-links">
+                    <a href="terms.html">服務條款</a>
+                    <a href="privacy.html">隱私政策</a>
+                    <a href="contact.html">聯絡我們</a>
+                </div>
+                <div class="social-links">
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-discord"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 GuideTrade. 保留所有權利。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/explore.js"></script>
+</body>
+</html>

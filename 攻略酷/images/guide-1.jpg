@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="200" viewBox="0 0 300 200">
+  <rect width="300" height="200" fill="#3f51b5" />
+  <rect x="50" y="50" width="200" height="100" rx="10" fill="#7986cb" />
+  <circle cx="150" cy="100" r="30" fill="#c5cae9" />
+  <path d="M130 100 L145 85 L145 115 L130 100" fill="#3f51b5" />
+  <path d="M155 85 L155 115 L170 100 L155 85" fill="#3f51b5" />
+  <text x="150" y="170" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#ffffff">最新遊戲通關秘技</text>
+</svg>

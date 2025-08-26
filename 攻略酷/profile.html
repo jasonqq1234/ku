@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>個人資料 - GuideTrade 攻略酷</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/user.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="js/auth.js"></script>
+</head>
+<body>
+    <!-- 導航欄 -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">GuideTrade</a>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">首頁</a>
+                <a href="explore.html">探索攻略</a>
+                <a href="publish.html">發表攻略</a>
+                <a href="leaderboard.html">排行榜</a>
+            </div>
+            <div class="nav-buttons">
+                <div class="user-dropdown">
+                    <div class="user-avatar">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="用戶頭像">
+                        <span>遊戲大師</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="dropdown-menu">
+                        <a href="profile.html" class="active"><i class="fas fa-user"></i> 個人資料</a>
+                        <a href="my-guides.html"><i class="fas fa-book"></i> 我的攻略</a>
+                        <a href="earnings.html"><i class="fas fa-chart-line"></i> 收益統計</a>
+                        <a href="settings.html"><i class="fas fa-cog"></i> 帳號設定</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="index.html" class="logout"><i class="fas fa-sign-out-alt"></i> 登出</a>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 個人資料區域 -->
+    <section class="profile-section">
+        <div class="container">
+            <div class="profile-container">
+                <!-- 側邊欄 -->
+                <div class="profile-sidebar">
+                    <div class="profile-avatar">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="用戶頭像" class="avatar-image">
+                        <h2 class="profile-name">遊戲大師</h2>
+                        <p class="profile-username">@gamemaster</p>
+                    </div>
+                    
+                    <div class="profile-stats">
+                        <div class="stat-item">
+                            <div class="stat-value">12</div>
+                            <div class="stat-label">攻略</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">1.5K</div>
+                            <div class="stat-label">粉絲</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">4.8</div>
+                            <div class="stat-label">評分</div>
+                        </div>
+                    </div>
+                    
+                    <ul class="profile-menu">
+                        <li><a href="profile.html" class="active"><i class="fas fa-user"></i> 個人資料</a></li>
+                        <li><a href="my-guides.html"><i class="fas fa-book"></i> 我的攻略</a></li>
+                        <li><a href="my-purchases.html"><i class="fas fa-shopping-cart"></i> 購買記錄</a></li>
+                        <li><a href="earnings.html"><i class="fas fa-chart-line"></i> 收益統計</a></li>
+                        <li><a href="settings.html"><i class="fas fa-cog"></i> 帳號設定</a></li>
+                    </ul>
+                </div>
+                
+                <!-- 主要內容區 -->
+                <div class="profile-content">
+                    <!-- 個人資料卡片 -->
+                    <div class="content-card">
+                        <div class="card-header">
+                            <h2 class="card-title">個人資料</h2>
+                            <button class="btn btn-outline">編輯資料</button>
+                        </div>
+                        
+                        <form class="profile-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="fullName">全名</label>
+                                    <input type="text" id="fullName" value="王小明" disabled>
+                                </div>
+                                <div class="form-group">
+                                    <label for="username">用戶名稱</label>
+                                    <input type="text" id="username" value="gamemaster" disabled>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="email">電子郵件</label>
+                                    <input type="email" id="email" value="gamemaster@example.com" disabled>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">手機號碼</label>
+                                    <input type="tel" id="phone" value="0912-345-678" disabled>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="bio">個人簡介</label>
+                                <textarea id="bio" disabled>資深遊戲玩家，專注於RPG和策略遊戲攻略。曾獲得多項遊戲競賽獎項，擅長Boss戰術分析和隱藏要素探索。希望通過分享攻略幫助更多玩家享受遊戲樂趣。</textarea>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="website">個人網站</label>
+                                    <input type="url" id="website" value="https://gamemaster.blog" disabled>
+                                </div>
+                                <div class="form-group">
+                                    <label for="location">所在地區</label>
+                                    <input type="text" id="location" value="台北市" disabled>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <!-- 專長與技能卡片 -->
+                    <div class="content-card">
+                        <div class="card-header">
+                            <h2 class="card-title">專長與技能</h2>
+                            <button class="btn btn-outline">編輯技能</button>
+                        </div>
+                        
+                        <div class="skills-container">
+                            <div class="skill-category">
+                                <h3>遊戲類型</h3>
+                                <div class="skill-tags">
+                                    <span class="skill-tag">角色扮演 (RPG)</span>
+                                    <span class="skill-tag">策略遊戲</span>
+                                    <span class="skill-tag">動作冒險</span>
+                                    <span class="skill-tag">多人線上遊戲</span>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-category">
+                                <h3>攻略專長</h3>
+                                <div class="skill-tags">
+                                    <span class="skill-tag">Boss戰術</span>
+                                    <span class="skill-tag">隱藏要素</span>
+                                    <span class="skill-tag">角色配點</span>
+                                    <span class="skill-tag">裝備搭配</span>
+                                    <span class="skill-tag">速通技巧</span>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-category">
+                                <h3>創作技能</h3>
+                                <div class="skill-tags">
+                                    <span class="skill-tag">攻略撰寫</span>
+                                    <span class="skill-tag">遊戲截圖</span>
+                                    <span class="skill-tag">影片剪輯</span>
+                                    <span class="skill-tag">圖文排版</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 最新攻略卡片 -->
+                    <div class="content-card">
+                        <div class="card-header">
+                            <h2 class="card-title">最新攻略</h2>
+                            <a href="my-guides.html" class="btn btn-outline">查看全部</a>
+                        </div>
+                        
+                        <div class="guides-list">
+                            <div class="guide-card">
+                                <div class="guide-image">
+                                    <img src="https://via.placeholder.com/300x160/3b82f6/ffffff?text=RPG+攻略" alt="攻略封面">
+                                </div>
+                                <div class="guide-info">
+                                    <h3 class="guide-title">《幻想冒險》全職業配點攻略</h3>
+                                    <div class="guide-meta">
+                                        <span>發布於 2023/10/15</span>
+                                        <span class="guide-price">NT$150</span>
+                                    </div>
+                                    <div class="guide-actions">
+                                        <div class="guide-stats">
+                                            <span><i class="fas fa-eye"></i> 1.2K</span>
+                                            <span><i class="fas fa-star"></i> 4.9</span>
+                                            <span><i class="fas fa-comment"></i> 32</span>
+                                        </div>
+                                        <a href="edit-guide.html" class="btn-icon"><i class="fas fa-edit"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="guide-card">
+                                <div class="guide-image">
+                                    <img src="https://via.placeholder.com/300x160/2563eb/ffffff?text=策略遊戲" alt="攻略封面">
+                                </div>
+                                <div class="guide-info">
+                                    <h3 class="guide-title">《王國征服》高階戰術與兵種搭配</h3>
+                                    <div class="guide-meta">
+                                        <span>發布於 2023/09/28</span>
+                                        <span class="guide-price">NT$200</span>
+                                    </div>
+                                    <div class="guide-actions">
+                                        <div class="guide-stats">
+                                            <span><i class="fas fa-eye"></i> 980</span>
+                                            <span><i class="fas fa-star"></i> 4.7</span>
+                                            <span><i class="fas fa-comment"></i> 24</span>
+                                        </div>
+                                        <a href="edit-guide.html" class="btn-icon"><i class="fas fa-edit"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="guide-card">
+                                <div class="guide-image">
+                                    <img src="https://via.placeholder.com/300x160/1d4ed8/ffffff?text=Boss+攻略" alt="攻略封面">
+                                </div>
+                                <div class="guide-info">
+                                    <h3 class="guide-title">《暗黑地牢》全Boss打法詳解</h3>
+                                    <div class="guide-meta">
+                                        <span>發布於 2023/09/10</span>
+                                        <span class="guide-price">NT$180</span>
+                                    </div>
+                                    <div class="guide-actions">
+                                        <div class="guide-stats">
+                                            <span><i class="fas fa-eye"></i> 1.5K</span>
+                                            <span><i class="fas fa-star"></i> 4.8</span>
+                                            <span><i class="fas fa-comment"></i> 45</span>
+                                        </div>
+                                        <a href="edit-guide.html" class="btn-icon"><i class="fas fa-edit"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 底部資訊 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>GuideTrade</h2>
+                    <p>專業的遊戲攻略交易平台</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-links-column">
+                        <h3>關於我們</h3>
+                        <a href="#">公司介紹</a>
+                        <a href="#">使用條款</a>
+                        <a href="#">隱私政策</a>
+                    </div>
+                    <div class="footer-links-column">
+                        <h3>幫助中心</h3>
+                        <a href="#">常見問題</a>
+                        <a href="#">聯絡我們</a>
+                        <a href="#">意見反饋</a>
+                    </div>
+                    <div class="footer-links-column">
+                        <h3>作者專區</h3>
+                        <a href="#">如何開始</a>
+                        <a href="#">創作者指南</a>
+                        <a href="#">收益計算</a>
+                    </div>
+                </div>
+                <div class="footer-social">
+                    <h3>關注我們</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-discord"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 GuideTrade. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/user.js"></script>
+</body>
+</html>

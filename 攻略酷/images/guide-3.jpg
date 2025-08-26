@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="200" viewBox="0 0 300 200">
+  <rect width="300" height="200" fill="#0277bd" />
+  <rect x="50" y="50" width="200" height="100" rx="10" fill="#29b6f6" />
+  <rect x="80" y="70" width="140" height="20" fill="#ffffff" />
+  <rect x="80" y="100" width="140" height="20" fill="#ffffff" />
+  <rect x="80" y="70" width="20" height="50" fill="#ffffff" />
+  <rect x="200" y="70" width="20" height="50" fill="#ffffff" />
+  <text x="150" y="170" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#ffffff">程式設計面試技巧</text>
+</svg>
