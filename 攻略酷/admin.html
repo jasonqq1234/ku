@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>帳號管理 - 攻略酷</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/auth.js"></script>
+    <script src="js/admin.js"></script>
+    <style>
+        .admin-container {
+            max-width: 1200px;
+            margin: 100px auto 40px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .search-bar {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        
+        .search-bar input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px 0 0 4px;
+        }
+        
+        .search-bar button {
+            padding: 10px 15px;
+            background-color: #6c5ce7;
+            color: white;
+            border: none;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+        }
+        
+        .user-table, .contact-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .user-table th, .user-table td,
+        .contact-table th, .contact-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .user-table th, .contact-table th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+        }
+        
+        .user-table tr:hover, .contact-table tr:hover {
+            background-color: #f6f6f6;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .edit-btn, .delete-btn, .view-btn {
+            padding: 6px 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        .edit-btn {
+            background-color: #4CAF50;
+            color: white;
+        }
+        
+        .delete-btn {
+            background-color: #f44336;
+            color: white;
+        }
+        
+        .view-btn {
+            background-color: #2196F3;
+            color: white;
+        }
+        
+        .admin-tabs {
+            display: flex;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .tab-btn {
+            padding: 10px 20px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            color: #666;
+        }
+        
+        .tab-btn.active {
+            color: #6c5ce7;
+            border-bottom: 2px solid #6c5ce7;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .message-content {
+            max-width: 300px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .contact-detail-modal .modal-content {
+            max-width: 600px;
+        }
+        
+        .message-full-content {
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #eee;
+            border-radius: 4px;
+            margin-top: 5px;
+            max-height: 200px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+        
+        .admin-tabs {
+            display: flex;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .tab-btn {
+            padding: 10px 20px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            color: #666;
+        }
+        
+        .tab-btn.active {
+            color: #6c5ce7;
+            border-bottom: 2px solid #6c5ce7;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .message-content {
+            max-width: 300px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .contact-detail-modal .modal-content {
+            max-width: 600px;
+        }
+    </style>
+        
+        
+        
+
+    </style>
+</head>
+<body>
+    <!-- 導航欄 -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="images/logo.svg" alt="攻略酷">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">首頁</a></li>
+                <li><a href="explore.html">探索</a></li>
+                <li><a href="leaderboard.html">排行榜</a></li>
+                <li><a href="about.html">關於我們</a></li>
+                <li><a href="contact.html">聯絡我們</a></li>
+            </ul>
+            <div class="nav-buttons">
+                <!-- 由 auth.js 動態更新 -->
+            </div>
+            <div class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主要內容 -->
+    <main>
+        <div class="admin-container">
+            <div class="admin-header">
+            <h2>管理後台</h2>
+        </div>
+        
+        <!-- 頁籤導航 -->
+        <div class="admin-tabs">
+            <button class="tab-btn active" data-tab="users">用戶管理</button>
+            <button class="tab-btn" data-tab="articles">文章管理</button>
+            <button class="tab-btn" data-tab="contacts">聯絡訊息</button>
+        </div>
+        
+        <!-- 用戶管理頁籤內容 -->
+        <div id="users-tab" class="tab-content active">
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="搜尋用戶...">
+                <button id="searchBtn">搜尋</button>
+            </div>
+            <div class="tab-actions">
+                <button id="addUserBtn" class="btn btn-primary">新增用戶</button>
+            </div>
+            
+            <table class="user-table">
+                <thead>
+                    <tr>
+                        <th>用戶名</th>
+                        <th>電子郵件</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody id="userTableBody">
+                    <!-- 用戶列表將由JavaScript動態生成 -->
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- 文章管理頁籤內容 -->
+        <div id="articles-tab" class="tab-content">
+            <div class="search-bar">
+                <input type="text" id="articleSearchInput" placeholder="搜尋文章...">
+                <button id="articleSearchBtn">搜尋</button>
+            </div>
+            <div class="tab-actions">
+                <button id="uploadArticleBtn" class="btn btn-primary">上傳攻略</button>
+            </div>
+            
+            <table class="article-table">
+                <thead>
+                    <tr>
+                        <th>標題</th>
+                        <th>作者</th>
+                        <th>發布日期</th>
+                        <th>狀態</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <div class="filter-controls" style="margin-bottom: 15px;">
+                    <label for="articleStatus">狀態篩選：</label>
+                    <select id="articleStatus" style="padding: 8px; border-radius: 4px; border: 1px solid #ddd;">
+                        <option value="all">全部</option>
+                        <option value="待審核">待審核</option>
+                        <option value="已發布">已發布</option>
+                        <option value="已拒絕">已拒絕</option>
+                    </select>
+                </div>
+                <tbody id="articleTableBody">
+                    <!-- 文章列表將由JavaScript動態生成 -->
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- 聯絡訊息頁籤內容 -->
+        <div id="contacts-tab" class="tab-content">
+            <table class="contact-table">
+                <thead>
+                    <tr>
+                        <th>姓名</th>
+                        <th>電子郵件</th>
+                        <th>主旨</th>
+                        <th>訊息內容</th>
+                        <th>提交時間</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody id="contactTableBody">
+                    <!-- 聯絡訊息將由JavaScript動態生成 -->
+                </tbody>
+            </table>
+        </div>
+
+            <table class="contact-table">
+                <thead>
+                    
+                </thead>
+                <tbody id="contactTableBody">
+                    <!-- 聯絡訊息將通過JavaScript動態填充 -->
+                </tbody>
+            </table>
+        </div>
+        </div>
+    </main>
+
+    <!-- 上傳攻略彈窗 -->
+    <div id="uploadModal" class="modal">
+        <div class="modal-content" style="max-width: 600px; margin: 0 auto; text-align: center; padding: 30px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
+            <span class="close-btn" style="font-size: 24px; color: #666;">&times;</span>
+            <h2 style="color: #4a6baf; margin-bottom: 25px; font-size: 28px;">上傳攻略</h2>
+            <form id="uploadForm" enctype="multipart/form-data" style="text-align: left;">
+                <div class="form-group" style="margin-bottom: 20px;">
+                    <label for="articleTitle" style="display: block; margin-bottom: 8px; font-weight: bold; color: #333;">標題</label>
+                    <input type="text" id="articleTitle" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 16px;">
+                </div>
+                <div class="form-group" style="margin-bottom: 20px;">
+                    <label for="articleAuthor" style="display: block; margin-bottom: 8px; font-weight: bold; color: #333;">作者</label>
+                    <input type="text" id="articleAuthor" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 16px;">
+                </div>
+                <div class="form-group" style="margin-bottom: 20px;">
+                    <label for="articleContent" style="display: block; margin-bottom: 8px; font-weight: bold; color: #333;">內容</label>
+                    <textarea id="articleContent" rows="10" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 16px; resize: vertical;"></textarea>
+                </div>
+                <div class="form-group" style="margin-bottom: 20px;">
+                    <label for="articleImage" style="display: block; margin-bottom: 8px; font-weight: bold; color: #333;">封面圖片</label>
+                    <input type="file" id="articleImage" accept="image/*" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; background-color: #f9f9f9;">
+                </div>
+                <div class="form-group" style="margin-bottom: 25px;">
+                    <label for="articleFile" style="display: block; margin-bottom: 8px; font-weight: bold; color: #333;">攻略檔案 (PDF, DOC)</label>
+                    <input type="file" id="articleFile" accept=".pdf,.doc,.docx" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; background-color: #f9f9f9;">
+                </div>
+                <div class="form-actions" style="text-align: center; margin-top: 30px;">
+                    <button type="button" class="cancel-btn" id="cancelUploadBtn" style="background-color: #f5f5f5; color: #666; border: none; padding: 12px 25px; border-radius: 6px; font-size: 16px; margin-right: 15px; cursor: pointer; transition: all 0.3s;">取消</button>
+                    <button type="submit" class="save-btn" style="background-color: #4a6baf; color: white; border: none; padding: 12px 30px; border-radius: 6px; font-size: 16px; cursor: pointer; transition: all 0.3s;">上傳</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- 編輯用戶彈窗 -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2 id="modalTitle">編輯用戶</h2>
+            <form id="userForm">
+                <input type="hidden" id="userId">
+                <div class="form-group">
+                    <label for="editUsername">用戶名</label>
+                    <input type="text" id="editUsername" required>
+                </div>
+                <div class="form-group">
+                    <label for="editEmail">電子郵件</label>
+                    <input type="email" id="editEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="editPassword">密碼 (留空表示不變)</label>
+                    <input type="password" id="editPassword">
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="cancel-btn" id="cancelBtn">取消</button>
+                    <button type="submit" class="save-btn">保存</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- 確認刪除彈窗 -->
+    <div id="deleteModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>確認刪除</h2>
+            <p>您確定要刪除此用戶嗎？此操作無法撤銷。</p>
+            <div class="form-actions">
+                <button type="button" class="cancel-btn" id="cancelDeleteBtn">取消</button>
+                <button type="button" class="delete-btn" id="confirmDeleteBtn">確認刪除</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 腳本 -->
+    <script src="js/auth.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>
